@@ -10,17 +10,12 @@ function Dashboard() {
   async function fetchMetrics() {
     //async function return promise, Promise result that may become available later.
     //await pauses the execution until the Promise settles
-    const response = await supabase
-      .from("sales_deals") //specifies the database you want to query
-      .select(
-        //Choose the columns
-        `
+
+    const response = await supabase.from("sales_deals").select(`
       name,
-      value
-      `,
-      )
-      .order("value", { ascending: false }) //sort the results (column name, option)
-      .limit(1); //how many rows
+      value.sum()
+      `);
+
     console.log(response);
   }
 

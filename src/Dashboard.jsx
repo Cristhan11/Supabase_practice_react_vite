@@ -3,9 +3,9 @@ import { useEffect } from "react";
 
 function Dashboard() {
   useEffect(() => {
-    //useEffect(setupFunction, dependencyArray)
+    //useEffect(setupFunction|exe after render, dependencyArray|reactivate value)
     fetchMetrics();
-  }, []); //empty dependecy array, runs in initial render
+  }, []); //empty dependecy array, runs after initial render
 
   async function fetchMetrics() {
     //async function return promise, Promise result that may become available later.
